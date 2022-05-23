@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        %{pypi_version}
-Release:        1
+Release:        2
 Summary:        Converts and manipulates common color representation (RGB, HSL, web, ...)
 License:        BSD-3-Clause
 URL:            https://github.com/vaab/%{pypi_name}
@@ -18,8 +18,9 @@ Converts and manipulates various color representation (HSL, RVB, web, X11, ...)
 
 %package        -n python3-%{pypi_name}
 Summary:        %{summary}
+BuildRequires:  python3-d2to1
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-nose
+Requires:       python3-nose2
 
 %description    -n python3-%{pypi_name}
 Converts and manipulates various color representation (HSL, RVB, web, X11, ...)
@@ -50,5 +51,8 @@ pip3 config set global.trusted-host https://mirrors.huaweicloud.com
 
 
 %changelog
+* Tue May 17 2022 lvxiaoqian <xiaoqian@nj.iscas.ac.cn> - 0.1.5-2
+- adjust BuildRequires and Requires
+
 * Wed Sep 29 2021 herengui <herengui@uniontech.com> - 0.1.5-1
 - Initial package.
